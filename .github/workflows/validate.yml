@@ -1,0 +1,105 @@
+name: Validate
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-batch:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Validate batch file syntax
+      run: |
+        # Basic syntax validation for batch files
+        Get-Content "Nexus_Tweaks.bat" | ForEach-Object {
+          if ($_ -match '^\s*[^@].*[^:]$' -and $_ -match '[<>|&]' -and $_ -notmatch '^REM' -and $_ -notmatch '^echo') {
+            Write-Warning "Potential syntax issue in line: $_"
+          }
+        }
+        Write-Host "Batch file syntax validation completed"
+      shell: powershell
+      
+    - name: Check for required components
+      run: |
+        # Check if batch file contains required safety features
+        $content = Get-Content "Nexus_Tweaks.bat" -Raw
+        
+        $checks = @{
+          "Administrator check" = $content -match "net session"
+          "User confirmation" = $content -match "set /p.*confirm"
+          "Restore point" = $content -match "Checkpoint-Computer"
+          "Error handling" = $content -match "errorLevel"
+        }
+        
+        foreach ($check in $checks.GetEnumerator()) {
+          if ($check.Value) {
+            Write-Host "✓ $($check.Key) found"
+          } else {
+            Write-Error "✗ $($check.Key) missing"
+          }
+        }
+      shell: powershell
+
+  validate-documentation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check README structure
+      run: |
+        # Check if README has required sections
+        if ! grep -q "# 🚀 Nexus Tweaks" README.md; then
+          echo "❌ README missing main title"
+          exit 1
+        fi
+        
+        sections=("Features" "Quick Start" "Usage" "Contributing" "License")
+        for section in "${sections[@]}"; do
+          if grep -q "$section" README.md; then
+            echo "✅ Found $section section"
+          else
+            echo "❌ Missing $section section"
+            exit 1
+          fi
+        done
+        
+    - name: Validate links in README
+      run: |
+        # Check for broken internal links
+        if grep -q "](CONTRIBUTING.md)" README.md; then
+          if [ -f "CONTRIBUTING.md" ]; then
+            echo "✅ CONTRIBUTING.md link valid"
+          else
+            echo "❌ CONTRIBUTING.md referenced but not found"
+            exit 1
+          fi
+        fi
+        
+        if grep -q "](LICENSE)" README.md; then
+          if [ -f "LICENSE" ]; then
+            echo "✅ LICENSE link valid"
+          else
+            echo "❌ LICENSE referenced but not found"
+            exit 1
+          fi
+        fi
+
+    - name: Check for required files
+      run: |
+        required_files=("README.md" "LICENSE" "CONTRIBUTING.md" "CHANGELOG.md")
+        for file in "${required_files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ Found $file"
+          else
+            echo "❌ Missing $file"
+            exit 1
+          fi
+        done
