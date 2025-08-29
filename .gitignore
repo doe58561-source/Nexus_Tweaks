@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editors/IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs
+*.log
+logs/
+
+# Build artifacts
+build/
+dist/
+out/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+~$*
