@@ -1,0 +1,12 @@
+* text=auto
+
+# Normalize common script line endings
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.reg text eol=crlf
+
+# Markdown and docs
+*.md text eol=lf
+docs/** text eol=lf
+

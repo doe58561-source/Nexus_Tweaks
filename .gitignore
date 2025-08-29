@@ -1,0 +1,30 @@
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Archives
+*.zip
+*.7z
+*.rar
+
+# Logs
+logs/
+*.log
+
+# Editors/IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Windows scripts temp
+temp/
+*.bak
+
