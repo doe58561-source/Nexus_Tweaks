@@ -1,1 +1,1 @@
-# Nexus_Tweaks
+Nexus Tweaks is a curated set of safe, reversible optimizations for Windows 10/11 designed to improve performance, responsiveness, privacy, and clarity. It trims nonessential services, removes bloat, applies sensible power/network/file‑system settings, and documents every change so you can customize or revert at any time—aiming for a fast, stable, and controllable Windows experience. 
