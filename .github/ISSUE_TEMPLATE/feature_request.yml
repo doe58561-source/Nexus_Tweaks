@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest an enhancement or new tweak module
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement!
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What issue or need does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the tweak or enhancement in detail
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks and rollbacks
+      description: Are there potential downsides? How can it be reverted?
+  - type: input
+    id: references
+    attributes:
+      label: References
+      placeholder: Links to docs, APIs, prior art

@@ -1,5 +1,6 @@
 # Security Policy
 
+<<<<<<< HEAD
 ## 🛡️ Reporting Security Vulnerabilities
 
 The Nexus Tweaks project takes security seriously. If you discover a security vulnerability, please report it responsibly.

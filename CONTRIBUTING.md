@@ -91,6 +91,8 @@ When adding new optimization tweaks:
 - Publishing others' private information
 - Spam or off-topic content
 
+By participating, you agree to abide by the `CODE_OF_CONDUCT.md`.
+
 ## 🛡️ Security Considerations
 
 Since this project modifies system settings:
@@ -115,6 +117,14 @@ Since this project modifies system settings:
 - **Use virtual machines** for safer testing
 - **Create system restore points** before testing
 - **Document any issues** encountered during testing
+
+### Style Guidelines
+
+- Use LF endings for docs and scripts; CRLF for Windows-only scripts
+- Follow `.editorconfig` conventions
+- Keep changes small and focused
+- Prefer scripts that are idempotent and well-commented
+- Document every change and its rollback
 
 ## 📞 Getting Help
 

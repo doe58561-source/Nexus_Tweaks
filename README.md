@@ -44,8 +44,8 @@ Nexus Tweaks is a comprehensive Windows optimization toolkit that trims nonessen
 
 1. **Download the latest release**
    ```bash
-   git clone https://github.com/yourusername/nexus-tweaks.git
-   cd nexus-tweaks
+   git clone https://github.com/doe58561-source/Nexus_Tweaks.git
+   cd Nexus_Tweaks
    ```
 
 2. **Run as Administrator**
@@ -114,7 +114,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ## 🐛 Bug Reports & Feature Requests
 
-Please use the [Issues](https://github.com/yourusername/nexus-tweaks/issues) page to:
+Please use the [Issues](https://github.com/doe58561-source/Nexus_Tweaks/issues) page to:
 - Report bugs
 - Request new features
 - Ask questions

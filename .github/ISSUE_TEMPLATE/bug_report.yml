@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a problem or regression with Nexus Tweaks
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: version
+    attributes:
+      label: Script version or commit
+      placeholder: e.g., v0.1.0 or 1a2b3c4
+  - type: dropdown
+    id: os
+    attributes:
+      label: Windows version
+      options:
+        - Windows 11 24H2
+        - Windows 11 23H2
+        - Windows 10 22H2
+        - Other
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the issue, expected behavior, and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include exact steps and selected modules/tweaks if applicable
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Paste relevant output, error messages, or images
+      render: text
